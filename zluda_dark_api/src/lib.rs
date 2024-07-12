@@ -470,6 +470,7 @@ pub struct FatbinFileHeader {
 
 bitflags! {
     #[repr(transparent)]
+    #[derive(Debug)]
     pub struct FatbinFileHeaderFlags: u64 {
         const Is64Bit = 0x0000000000000001;
         const Debug = 0x0000000000000002;
