@@ -542,6 +542,7 @@ impl FatbinFileKind {
     }
 }
 
+#[derive(Debug)]
 pub enum CudaFatbin {
     Version1(FatbinModuleHandle),
     Version2 {
@@ -594,6 +595,7 @@ impl CudaFatbin {
     }
 }
 
+#[derive(Debug)]
 pub enum CUmoduleContent {
     RawText(*const u8),
     Archive(&'static [u8]),
