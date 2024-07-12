@@ -419,6 +419,7 @@ pub const FATBINC_VERSION_V1: c_uint = 0x1;
 pub const FATBINC_VERSION_V2: c_uint = 0x2;
 
 #[repr(C)]
+#[derive(Debug)]
 pub struct FatbincWrapper {
     magic: c_uint,
     version: c_uint,
@@ -430,6 +431,7 @@ pub const FATBIN_MAGIC: c_uint = 0xBA55ED50;
 pub const FATBIN_VERSION: c_ushort = 0x01;
 
 #[repr(C, align(8))]
+#[derive(Debug)]
 pub struct FatbinHeader {
     magic: c_uint,
     version: c_ushort,
@@ -443,6 +445,7 @@ pub const FATBIN_FILE_HEADER_VERSION_CURRENT: c_ushort = 0x101;
 
 // assembly file header is a bit different, but we don't care
 #[repr(C)]
+#[derive(Debug)]
 pub struct FatbinFileHeader {
     pub kind: c_ushort,
     pub version: c_ushort,
@@ -629,6 +632,7 @@ unsafe fn slice_length(ptr: *const *const c_void) -> usize {
 }
 
 #[repr(transparent)]
+#[derive(Debug)]
 pub struct FatbinModuleHandle(*const FatbinHeader);
 
 impl FatbinModuleHandle {
